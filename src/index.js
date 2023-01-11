@@ -1,5 +1,5 @@
 import './index.css'
-import Input from './components/input'
+import Login from './pages/login';
 
 const root = document.getElementById('root');
-root.innerHTML = Input();
+root.innerHTML = Login();

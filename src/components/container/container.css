@@ -1,0 +1,11 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  font-weight: 500;
+  color: var(--color-black);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

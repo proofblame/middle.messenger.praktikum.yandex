@@ -1,0 +1,41 @@
+.form {
+  width: 340px;
+  min-height: 450px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.14);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+
+  &__title {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+  &__fields {
+    flex: 1 1 auto;
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+  }
+  &__button {
+    background: var(--color-blue);
+    height: 37px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 13px;
+    color: var(--color-white);
+    margin-bottom: 14px;
+    cursor: pointer;
+  }
+  &__link {
+    color: var(--color-blue);
+    font-size: 11px;
+    line-height: 11px;
+    align-self: center;
+  }
+}
