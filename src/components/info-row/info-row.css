@@ -19,7 +19,7 @@
     color: var(--color-blue);
     background: transparent;
     &.color-red {
-      color: var(--color--red);
+      color: var(--color-red);
     }
   }
 }

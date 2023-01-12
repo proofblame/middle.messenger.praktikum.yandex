@@ -1,0 +1,124 @@
+.chats-wrapper {
+  width: 100%;
+  height: 100vh;
+  font-weight: 500;
+  color: var(--color-black);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chats {
+  flex: 0 0 310px;
+  background: var(--color-snow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  &__header {
+    flex: 0 0 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 10px;
+    border-bottom: 1px solid var(--color-wisper);
+    & button {
+      margin: 6px 0 21px 0;
+      background: transparent;
+      width: 70px;
+      align-self: end;
+      color: var(--color-gray);
+    }
+    & input {
+      background: var(--color-whitesmoke);
+      border-radius: 5px;
+      height: 32px;
+      text-align: center;
+
+      &::placeholder {
+        text-align: center;
+        color: var(--color-gray);
+      }
+    }
+  }
+  &__body {
+    overflow-y: auto;
+    flex: 1;
+  }
+  &__body-item {
+  }
+}
+
+.chats-messages {
+  flex: 1 1 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px 0;
+
+
+  &__head {
+    border-bottom: 1px solid var(--color-wisper);
+    display: flex;
+    padding-bottom: 10px;
+  }
+  &__logo {
+    width: 34px;
+    height: 34px;
+    background: var(--color-whitesmoke);
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  &__name {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  &__option {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+  }
+  &__body {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__input {
+    border-top: 1px solid var(--color-wisper);
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+      padding-bottom: 10px;
+  }
+  &__files {
+    height: 32px;
+    width: 32px;
+    background: var(--color-gray);
+  }
+  &__textarea {
+    background: var(--color-whitesmoke);
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    flex: 1;
+    resize: none;
+
+    &::placeholder {
+      color: var(--color-gray);
+    }
+  }
+  &__submit {
+    background: var(--color-blue);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    color: var(--color-white);
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

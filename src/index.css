@@ -1,19 +1,18 @@
 @import url("./vendor/normalize.css");
 @import url("./vendor/fonts.css");
 
-
-
 :root {
   --color-white: #ffffff;
   --color-black: #1e1e1e;
   --color-gray: #999999;
   --color-blue: #3369f3;
+  --color-light-blue: #e4edfd;
   --color-whitesmoke: #efefef;
   --color-whisper: #eaeaea;
-  --color--red: #ff0000;
+  --color-red: #ff0000;
+  --color-snow: #fbfbfb;
+  --color-white-light: #f8f8f8;
 }
-
-
 
 * {
   padding: 0;
