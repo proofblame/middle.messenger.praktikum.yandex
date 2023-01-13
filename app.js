@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
-app.use(express.static(__dirname + "/dist"));
+// app.use(express.static(__dirname + "/dist"));
 
 const navLinks = [
   "/",
@@ -15,10 +15,16 @@ const navLinks = [
   "/400",
 ];
 
-navLinks.forEach(() => {
-  app.get('/*', (req, res) => {
-    res.sendFile(__dirname + "/dist/index.html");
-  });
+// navLinks.forEach(() => {
+//   app.get('/*', (req, res) => {
+//     res.sendFile(__dirname + "/dist/index.html");
+//   });
+// });
+
+app.use(express.static(__dirname + '/dist'));
+
+app.use('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 app.listen(PORT, function () {
