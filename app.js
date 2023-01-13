@@ -16,7 +16,7 @@ const navLinks = [
 ];
 
 navLinks.forEach(() => {
-  app.get('/', (req, res) => {
+  app.get('/*', (req, res) => {
     res.sendFile(__dirname + "/dist/index.html");
   });
 });
