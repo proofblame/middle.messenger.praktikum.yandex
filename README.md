@@ -12,3 +12,7 @@
 - `npm run dev` — запуск версии для разработчика,
 - `npm run build` — сборка стабильной версии.
 - `npm run start` — сборка стабильной версии и запуск вебсервера на порту 3000.
+
+## Посмотреть
+
+Netlify: https://effervescent-axolotl-2abc77.netlify.app/
