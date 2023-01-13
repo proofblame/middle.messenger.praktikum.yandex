@@ -2,10 +2,10 @@
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
   "description": "---",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html --open --no-cache",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "start": "npm run build && node app.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,9 @@
     "postcss": "^8.4.21",
     "postcss-nested": "^6.0.0",
     "postcss-simple-vars": "^7.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "handlebars": "^4.7.7"
   }
 }
