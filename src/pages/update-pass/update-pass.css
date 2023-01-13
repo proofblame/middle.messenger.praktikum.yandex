@@ -1,0 +1,28 @@
+.update-pass {
+  width: 510px;
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  &__img {
+    width: 130px;
+    height: 130px;
+    background: var(--color-whitesmoke);
+    margin-bottom: 21px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__name {
+    font-size: 16px;
+    line-height: 16px;
+  }
+  &__data {
+    margin-bottom: 50px;
+  }
+}
