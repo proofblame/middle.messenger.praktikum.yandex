@@ -1,8 +1,10 @@
 @import url("./vendor/normalize.css");
 @import url("./vendor/fonts.css");
+@import url("./templates/account/account.css");
 
 :root {
   --color-white: #ffffff;
+  --color-dark: #000000;
   --color-black: #1e1e1e;
   --color-gray: #999999;
   --color-blue: #3369f3;

@@ -1,9 +1,9 @@
-import tpl from "./update-pass.hbs";
-import "./update-pass.css";
+import tpl from "../../templates/account/account.hbs";
 import InfoRow from "../../components/info-row";
 import Container from "../../components/container";
+import Button from "../../components/button";
 
-const profileData = [
+const rows = [
   InfoRow({
     item: "Старый пароль",
     info: ".........",
@@ -17,5 +17,7 @@ const profileData = [
   }),
 ];
 
+const button = Button({ title: "Сохранить" });
+
 export default (props) =>
-  Container({ children: tpl({ profileData, ...props }) });
+  Container({ children: tpl({ rows, button, ...props }) });

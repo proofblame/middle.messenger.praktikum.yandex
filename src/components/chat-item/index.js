@@ -1,4 +1,4 @@
-import tpl from './chat-item.hbs'
-import './chat-item.css'
+import tpl from "./chat-item.hbs";
+import "./chat-item.css";
 
-export default props => tpl(props);
+export default (props) => tpl(props);

@@ -1,7 +1,12 @@
 <div class="info__row">
   {{#if info}}
-    <span class="info__row-label">{{item}}</span>
-    <span class="info__row-data">{{info}}</span>
+    <label class="info__row-label">{{item}}</label>
+    <input
+      name="{{name}}"
+      {{disabled}}
+      class="info__row-input"
+      value="{{info}}"
+    />
   {{else}}
     <button class="info__row-button {{className}}">{{item}}</button>
   {{/if}}

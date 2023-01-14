@@ -11,9 +11,10 @@
     color: var(--color-black);
     font-weight: 500;
   }
-  &-data {
+  &-input {
     color: var(--color-gray);
-
+    background: transparent;
+    text-align: right;
   }
   &-button {
     color: var(--color-blue);

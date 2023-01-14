@@ -1,4 +1,4 @@
-import tpl from './container.hbs'
-import './container.css'
+import tpl from "./container.hbs";
+import "./container.css";
 
-export default props => tpl(props);
+export default (props) => tpl(props);
