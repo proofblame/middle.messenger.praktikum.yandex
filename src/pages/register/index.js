@@ -6,8 +6,8 @@ import Container from "../../components/container";
 const inputs = [
   Input({ id: "email", name: "Почта", type: "text" }),
   Input({ id: "login", name: "Логин", type: "text" }),
-  Input({ id: "name", name: "Имя", type: "text" }),
-  Input({ id: "lastname", name: "Фамилия", type: "text" }),
+  Input({ id: "first_name", name: "Имя", type: "text" }),
+  Input({ id: "second_name", name: "Фамилия", type: "text" }),
   Input({ id: "phone", name: "Телефон", type: "tel" }),
   Input({ id: "password", name: "Пароль", type: "password" }),
   Input({ id: "confirm-password", name: "Пароль (еще раз)", type: "password" }),

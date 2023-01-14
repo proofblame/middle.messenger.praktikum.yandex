@@ -1,4 +1,4 @@
-import tpl from './input.hbs'
-import './input.css'
+import tpl from "./input.hbs";
+import "./input.css";
 
-export default props => tpl(props);
+export default (props) => tpl(props);

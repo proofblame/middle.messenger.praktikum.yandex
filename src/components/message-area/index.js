@@ -1,4 +1,4 @@
-import tpl from './message-area.hbs'
-import './message-area.css'
+import tpl from "./message-area.hbs";
+import "./message-area.css";
 
-export default props => tpl(props);
+export default (props) => tpl(props);
