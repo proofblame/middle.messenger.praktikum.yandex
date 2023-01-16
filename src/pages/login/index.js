@@ -4,8 +4,8 @@ import Form from "../../components/form";
 import Container from "../../components/container";
 
 const inputs = [
-  Input({ id: "login", name: "Логин", type: "text" }),
-  Input({ id: "password", name: "Пароль", type: "password" }),
+  Input({ name: "login", title: "Логин", type: "text" }),
+  Input({ name: "password", title: "Пароль", type: "password" }),
 ];
 
 const form = Form({
