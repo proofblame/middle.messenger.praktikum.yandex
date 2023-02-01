@@ -6,7 +6,7 @@
     "dev": "parcel src/index.html --open --no-cache",
     "build": "parcel build src/index.html",
     "start": "npm run build && node app.js",
-    "lint": "npx eslint 'src/**'",
+    "lint": "npx eslint '/src/**'",
     "stylelint": "npx stylelint '**/*.css'"
   },
   "repository": {
@@ -36,6 +36,7 @@
     "postcss": "^8.4.21",
     "postcss-modules": "^6.0.0",
     "postcss-nested": "~6.0.0",
+    "postcss-scss": "^4.0.6",
     "postcss-simple-vars": "~7.0.1",
     "prettier": "^2.8.3",
     "stylelint": "^14.16.1",

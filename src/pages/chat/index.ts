@@ -1,5 +1,5 @@
-import { tpl } from "./chat.tpl";
-import "./chat.css";
+import { tpl } from './chat.tpl';
+import './chat.css';
 // import Chat from "../../components/chat-item";
 // import Message from "../../components/message-area";
 

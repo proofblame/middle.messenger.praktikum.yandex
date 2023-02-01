@@ -1,4 +1,4 @@
-<div class="chat-item">
+export const tpl = `<div class="chat-item">
   <div class="chat-item__logo">
     <div class="chat-item__logo-img"></div>
   </div>
@@ -17,3 +17,4 @@
     </div>
   </div>
 </div>
+`;

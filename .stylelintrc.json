@@ -3,6 +3,6 @@
   "rules": {
     "color-hex-case": "lower"
   },
-  "customSyntax": "postcss",
+  "customSyntax": "postcss-scss",
   "ignoreFiles": ["build/*", "dist/*"]
 }

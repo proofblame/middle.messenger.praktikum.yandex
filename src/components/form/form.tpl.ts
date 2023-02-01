@@ -1,3 +1,4 @@
+export const tpl = `
 <form class="form" id={{id}}>
   <p class="form__title">{{formTitle}}</p>
   <div class="form__fields">
@@ -10,3 +11,4 @@
     <a href={{routePath}} class="form__link">{{linkName}}</a>
   </div>
 </form>
+`;

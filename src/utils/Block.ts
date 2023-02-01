@@ -88,7 +88,7 @@ class Block<TProps> {
         });
     }
 
-    componentDidMount(): void {}
+    componentDidMount(): void { }
 
     dispatchComponentDidMount(): void {
         this.eventBus().emit(Block.EVENTS.FLOW_CDM);
