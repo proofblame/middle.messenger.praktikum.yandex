@@ -1,15 +1,27 @@
-// import "./index.css";
-// import Login from "./pages/login";
-// import Register from "./pages/register";
+import './index.css';
+import Login from './pages/login';
+import Register from './pages/register';
 // import Profile from "./pages/profile";
 // import Chat from "./pages/chat";
 // import Error from "./pages/error";
 // import UpdatePass from "./pages/update-pass";
 // import EditProfile from "./pages/edit-profile";
 // import UpdateAvatar from "./pages/update-avatar";
+import renderDOM from './utils/renderDOM';
 
-// const path = window.location.pathname;
+const path = window.location.pathname;
 // const root = document.getElementById("root");
+
+switch (path) {
+case '/signin':
+    renderDOM('root', Login);
+    break;
+case '/signup':
+    renderDOM('root', Register);
+    break;
+default:
+    renderDOM('root', Register);
+}
 
 // switch (path) {
 //   case "/":
