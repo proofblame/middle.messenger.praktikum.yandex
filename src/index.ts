@@ -1,59 +1,42 @@
 import './index.css';
 import Login from './pages/login';
 import Register from './pages/register';
-// import Profile from "./pages/profile";
-// import Chat from "./pages/chat";
-// import Error from "./pages/error";
-// import UpdatePass from "./pages/update-pass";
-// import EditProfile from "./pages/edit-profile";
-// import UpdateAvatar from "./pages/update-avatar";
+import Error404 from './pages/error-404';
+import Error500 from './pages/error-500';
+import Profile from './pages/profile';
+import EditProfile from './pages/edit-profile';
+import UpdatePass from './pages/update-pass';
+import UpdateAvatar from './pages/update-avatar';
+import Chat from './pages/chat';
 import renderDOM from './utils/renderDOM';
 
 const path = window.location.pathname;
-// const root = document.getElementById("root");
 
 switch (path) {
+case '/':
+    renderDOM('root', Chat);
+    break;
+case '/account':
+    renderDOM('root', Profile);
+    break;
+case '/account/edit':
+    renderDOM('root', EditProfile);
+    break;
+case '/account/change-password':
+    renderDOM('root', UpdatePass);
+    break;
+case '/account/avatar':
+    renderDOM('root', UpdateAvatar);
+    break;
 case '/signin':
     renderDOM('root', Login);
     break;
 case '/signup':
     renderDOM('root', Register);
     break;
+case '/500':
+    renderDOM('root', Error500);
+    break;
 default:
-    renderDOM('root', Register);
+    renderDOM('root', Error404);
 }
-
-// switch (path) {
-//   case "/":
-//     root.innerHTML = Chat();
-//     break;
-//   case "/signin":
-//     root.innerHTML = Login();
-//     break;
-//   case "/signup":
-//     root.innerHTML = Register();
-//     break;
-//   case "/account":
-//     root.innerHTML = Profile();
-//     break;
-//   case "/account/change-password":
-//     root.innerHTML = UpdatePass();
-//     break;
-//   case "/account/edit":
-//     root.innerHTML = EditProfile();
-//     break;
-//   case "/account/edit/avatar":
-//     root.innerHTML = UpdateAvatar();
-//     break;
-//   case "/500":
-//     root.innerHTML = Error({
-//       number: 500,
-//       message: "Мы уже фиксим",
-//     });
-//     break;
-//   default:
-//     root.innerHTML = Error({
-//       number: 404,
-//       message: "Не туда попали",
-//     });
-// }

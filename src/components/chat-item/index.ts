@@ -7,8 +7,8 @@ type TProps = {
     name: string;
     time: string;
     message: string;
-    newMessages: string;
-    title: string;
+    newMessages: string | number | null;
+    logo: string;
 } & TPropsDefault;
 
 export default class ChatItem extends Block<TProps> {
@@ -18,7 +18,7 @@ export default class ChatItem extends Block<TProps> {
             time: this.props.time,
             message: this.props.message,
             newMessages: this.props.newMessages,
-            title: this.props.title,
+            logo: this.props.logo,
         });
     }
 }

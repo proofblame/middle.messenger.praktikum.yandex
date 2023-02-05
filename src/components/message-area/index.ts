@@ -5,7 +5,7 @@ import Block from '../../utils/Block';
 import './message-area.css';
 
 type TProps = {
-    isMe: boolean;
+    isMe?: boolean;
     text: string;
     time: string;
 } & TPropsDefault;

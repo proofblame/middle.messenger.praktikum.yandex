@@ -4,11 +4,13 @@ import Block from '../../utils/Block';
 import './info-row.css';
 
 type TProps = {
-    info: string;
+    info?: string;
     item: string;
-    name: string;
-    disabled: boolean;
-    className: string;
+    id: string;
+    disabled?: string;
+    className?: string;
+    required?: boolean;
+    type: string;
 } & TPropsDefault;
 
 export default class InfoRow extends Block<TProps> {
@@ -16,9 +18,11 @@ export default class InfoRow extends Block<TProps> {
         return this.compile(tpl, {
             info: this.props.info,
             item: this.props.item,
-            name: this.props.name,
+            id: this.props.id,
             disabled: this.props.disabled,
+            required: this.props.required,
             className: this.props.className,
+            type: this.props.type,
         });
     }
 }

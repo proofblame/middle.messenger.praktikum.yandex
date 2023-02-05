@@ -1,3 +1,4 @@
+export const tpl = `
 <form class="update-avatar">
   <p class="update-avatar__title error">Загрузите файл</p>
   <label class="update-avatar__input">
@@ -9,3 +10,4 @@
   </div>
   <span class="update-avatar__error">Нужно выбрать файл</span>
 </form>
+`;
