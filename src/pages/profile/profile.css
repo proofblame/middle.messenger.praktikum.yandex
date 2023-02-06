@@ -27,9 +27,7 @@
     & input {
       display: none;
     }
-
   }
-
   &__form {
     margin-bottom: 50px;
   }
