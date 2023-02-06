@@ -12,6 +12,7 @@
     line-height: 20px;
     text-align: center;
     margin-bottom: 40px;
+
     &.error {
       color: var(--color-red);
     }
@@ -19,17 +20,21 @@
 
   &__input {
     margin-bottom: 45px;
+
     & span {
       color: var(--color-blue);
     }
+
     & input {
       display: none;
     }
   }
+
   &__submit {
     width: 100%;
     margin-bottom: 14px;
   }
+
   &__error {
     font-weight: 500;
     font-size: 11px;

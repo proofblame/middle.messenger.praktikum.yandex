@@ -23,11 +23,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     & input {
       display: none;
     }
   }
-
 
   &__form {
     margin-bottom: 50px;
