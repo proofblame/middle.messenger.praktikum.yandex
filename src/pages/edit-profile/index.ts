@@ -58,7 +58,7 @@ const rows = rowsData.map(
         }),
 );
 
-const button = new Button({ title: 'Сохранить' });
+const button = new Button({ title: 'Сохранить', type: 'submit' });
 
 const EditProfile = new Container({
     children: new Account({
@@ -74,6 +74,7 @@ const EditProfile = new Container({
                     const data: ITempObj = {};
                     inputFields.forEach((current: HTMLInputElement) => {
                         data[current.id] = current.value;
+                        console.log(data);
                     });
                 }
             },

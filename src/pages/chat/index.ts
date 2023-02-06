@@ -5,6 +5,7 @@ import Message from '../../components/message-area';
 import Validation from '../../utils/Validation';
 import Block from '../../utils/Block';
 import { ITempObj, TPropsDefault } from '../../utils/Interfaces';
+import MessageCompose from '../../components/message-compose';
 
 const validation = new Validation();
 
@@ -144,7 +145,9 @@ const messagesData = [
 
 const chats = chatsData.map((el) => new ChatItem({ ...el }));
 
-const messages = messagesData.map((el) => new Message({ ...el }));
+const messages = messagesData.map(
+    (el) => new Message({ ...el, className: el.isMe ? ['message-area', 'message-area_me'] : 'message-area' }),
+);
 
 type TProps = {} & TPropsDefault;
 
@@ -160,22 +163,24 @@ class Chats extends Block<TProps> {
 const ChatsPage = new Chats({
     chats,
     messages,
-    events: {
-        submit: (event: Event) => {
-            event.preventDefault();
-            const target = event.target as HTMLFormElement;
-            if (validation.check(target)) {
-                const inputFields = target.querySelectorAll('[data-required=true]');
-                const data: ITempObj = {};
-                inputFields.forEach((current: HTMLInputElement) => {
-                    data[current.id] = current.value;
-                });
-                console.log(data);
-            } else {
-                console.log('Введите сообщение');
-            }
+    messageCompose: new MessageCompose({
+        events: {
+            submit: (event: Event) => {
+                event.preventDefault();
+                const target = event.target as HTMLFormElement;
+                if (validation.check(target)) {
+                    const inputFields = target.querySelectorAll('[data-required=true]');
+                    const data: ITempObj = {};
+                    inputFields.forEach((current: HTMLInputElement) => {
+                        data[current.id] = current.value;
+                    });
+                    console.log(data);
+                } else {
+                    console.log('Введите сообщение');
+                }
+            },
         },
-    },
+    }),
 });
 
 export default ChatsPage;

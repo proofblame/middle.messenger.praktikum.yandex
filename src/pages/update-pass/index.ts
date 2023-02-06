@@ -12,7 +12,7 @@ const rowsData = [
     {
         item: 'Старый пароль',
         info: '.........',
-        id: 'oldPassword',
+        id: 'password',
     },
     { item: 'Новый пароль', info: '............', id: 'password' },
     {
@@ -21,31 +21,34 @@ const rowsData = [
         id: 'confirm_password',
     },
 ];
-const rows = rowsData.map((element) => new InfoRow({
-    ...element,
-    required: true,
-    type: 'password',
-    events: {
-        focus: (event: Event) => {
-            validation.hideError(event.target as HTMLInputElement);
-        },
-        blur: (event: Event) => {
-            const target = event.target as HTMLInputElement;
-            if (target.id === 'confirm_password') {
-                if (!validation.confirmPassword(target, target.value)) {
-                    validation.showError(target);
-                }
-            }
-            if (target.id === 'password') {
-                if (!validation.password(target.value)) {
-                    validation.showError(target);
-                }
-            }
-        },
-    },
-}));
+const rows = rowsData.map(
+    (element) =>
+        new InfoRow({
+            ...element,
+            required: true,
+            type: 'password',
+            events: {
+                focus: (event: Event) => {
+                    validation.hideError(event.target as HTMLInputElement);
+                },
+                blur: (event: Event) => {
+                    const target = event.target as HTMLInputElement;
+                    if (target.id === 'confirm_password') {
+                        if (!validation.confirmPassword(target, target.value)) {
+                            validation.showError(target);
+                        }
+                    }
+                    if (target.id === 'password') {
+                        if (!validation.password(target.value)) {
+                            validation.showError(target);
+                        }
+                    }
+                },
+            },
+        }),
+);
 
-const button = new Button({ title: 'Сохранить' });
+const button = new Button({ title: 'Сохранить', type: 'submit' });
 
 const UpdatePass = new Container({
     children: new Account({

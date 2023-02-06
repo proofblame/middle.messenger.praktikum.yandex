@@ -23,10 +23,6 @@ export const tpl = `<div class='chats-wrapper'>
         {{{this}}}
       {{/each}}
     </div>
-    <div class='chats-messages__input'>
-      <div class='chats-messages__files'></div>
-      <textarea class='chats-messages__textarea' placeholder='Сообщение' rows='1'></textarea>
-      <div class='chats-messages__submit'>></div>
-    </div>
+    {{{messageCompose}}}
   </div>
 </div>`;

@@ -16,13 +16,13 @@ class Block<TProps> {
 
     private _meta: { tagName: string; props: object; withInternalID?: boolean };
 
-    public eventBus: Function;
+    public eventBus: () => void;
 
     public children: object;
 
     public props: TProps;
 
-    public _id: string = '';
+    public _id = '';
 
     constructor(propsAndChildren: TProps, tagName = 'div') {
         const { children, props } = this._getChildren(propsAndChildren);
@@ -88,7 +88,7 @@ class Block<TProps> {
         });
     }
 
-    componentDidMount(): void { }
+    componentDidMount(): void {}
 
     dispatchComponentDidMount(): void {
         this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -192,7 +192,7 @@ class Block<TProps> {
     private _makePropsProxy(props: any): TProps {
         const self = this;
 
-        return new Proxy(props as any, {
+        return new Proxy(props, {
             set(target, prop, value) {
                 target[prop] = value;
                 self.eventBus().emit(Block.EVENTS.FLOW_CDU);
@@ -203,7 +203,7 @@ class Block<TProps> {
                     throw new Error('Доступ отсутствует!');
                 }
 
-                const value = target[prop] as any;
+                const value = target[prop];
                 return typeof value === 'function' ? value.bind(target) : value;
             },
             deleteProperty() {

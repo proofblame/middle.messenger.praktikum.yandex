@@ -1,4 +1,3 @@
-import { tpl } from '../../templates/account/account.tpl';
 import InfoRow from '../../components/info-row';
 import Container from '../../components/container';
 import Account from '../../components/account';
@@ -43,7 +42,11 @@ const rowsData = [
     },
 ];
 
-const buttonsData = [{ item: 'Изменить данные' }, { item: 'Изменить пароль' }, { item: 'Выйти', className: 'color-red' }];
+const buttonsData = [
+    { item: 'Изменить данные' },
+    { item: 'Изменить пароль' },
+    { item: 'Выйти', className: 'color-red' },
+];
 
 const rows = rowsData.map((el) => new InfoRow(el));
 const buttons = buttonsData.map((el) => new InfoRow(el));
