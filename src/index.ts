@@ -16,7 +16,7 @@ const router = new Router('root');
 
 router
     .use('/', Login)
-    .use('/sign-up', Register)
+    .use('/signup', Register)
     .use('/messenger', Chat)
     .use('/account', Profile)
     .use('/account/edit', EditProfile)

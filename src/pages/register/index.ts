@@ -68,7 +68,7 @@ const Register = new Container({
         id: 'register',
         formTitle: 'Регистрация',
         buttonName: 'Зарегистрироваться',
-        routePath: '/signin',
+        routePath: '/',
         linkName: 'Войти',
         events: {
             submit: (event: Event) => {

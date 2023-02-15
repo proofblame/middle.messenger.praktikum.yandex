@@ -5,6 +5,7 @@ const Error500 = new Container({
     children: new ErrorPage({
         number: 500,
         message: 'Мы уже фиксим',
+        routePath: '/messenger',
     }),
 });
 

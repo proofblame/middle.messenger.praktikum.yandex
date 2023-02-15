@@ -5,6 +5,7 @@ const Error404 = new Container({
     children: new ErrorPage({
         number: 404,
         message: 'Не туда попали',
+        routePath: '/messenger',
     }),
 });
 

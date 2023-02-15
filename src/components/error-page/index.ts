@@ -4,8 +4,9 @@ import Block from '../../utils/Block';
 import { TPropsDefault } from '../../utils/Interfaces';
 
 type TProps = {
-    number: string | number;
-    message: string;
+  number: string | number;
+  message: string;
+  routePath: string;
 } & TPropsDefault;
 
 export default class ErrorPage extends Block<TProps> {
@@ -13,6 +14,7 @@ export default class ErrorPage extends Block<TProps> {
         return this.compile(tpl, {
             number: this.props.number,
             message: this.props.message,
+            routePath: this.props.routePath,
         });
     }
 }
