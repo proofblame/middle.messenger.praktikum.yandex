@@ -8,35 +8,49 @@ import EditProfile from './pages/edit-profile';
 import UpdatePass from './pages/update-pass';
 import UpdateAvatar from './pages/update-avatar';
 import Chat from './pages/chat';
-import renderDOM from './utils/renderDOM';
+import Router from './utils/Router';
 
-const path = window.location.pathname;
+// const path = window.location.pathname;
 
-switch (path) {
-case '/':
-    renderDOM('root', Chat);
-    break;
-case '/account':
-    renderDOM('root', Profile);
-    break;
-case '/account/edit':
-    renderDOM('root', EditProfile);
-    break;
-case '/account/change-password':
-    renderDOM('root', UpdatePass);
-    break;
-case '/account/avatar':
-    renderDOM('root', UpdateAvatar);
-    break;
-case '/signin':
-    renderDOM('root', Login);
-    break;
-case '/signup':
-    renderDOM('root', Register);
-    break;
-case '/500':
-    renderDOM('root', Error500);
-    break;
-default:
-    renderDOM('root', Error404);
-}
+const router = new Router('root');
+
+router
+    .use('/', Login)
+    .use('/sign-up', Register)
+    .use('/messenger', Chat)
+    .use('/account', Profile)
+    .use('/account/edit', EditProfile)
+    .use('/account/change-password', UpdatePass)
+    .use('/account/avatar', UpdateAvatar)
+    .use('/500', Error500)
+    .use('*', Error404)
+    .start();
+
+// switch (path) {
+// case '/':
+//     renderDOM('root', Chat);
+//     break;
+// case '/account':
+//     renderDOM('root', Profile);
+//     break;
+// case '/account/edit':
+//     renderDOM('root', EditProfile);
+//     break;
+// case '/account/change-password':
+//     renderDOM('root', UpdatePass);
+//     break;
+// case '/account/avatar':
+//     renderDOM('root', UpdateAvatar);
+//     break;
+// case '/signin':
+//     renderDOM('root', Login);
+//     break;
+// case '/signup':
+//     renderDOM('root', Register);
+//     break;
+// case '/500':
+//     renderDOM('root', Error500);
+//     break;
+// default:
+//     renderDOM('root', Error404);
+// }
