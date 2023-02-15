@@ -2,7 +2,7 @@ import EventBus from './EventBus';
 import { set } from './helpers';
 
 export enum StoreEvents {
-  Updated = 'updated',
+    Updated = 'updated',
 }
 
 class Store extends EventBus {

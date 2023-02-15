@@ -1,7 +1,6 @@
 import * as Handlebars from 'handlebars';
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
-// eslint-disable-next-line no-undef
 import isArray = Handlebars.Utils.isArray;
 import { ITempObj } from './Interfaces';
 
@@ -17,13 +16,13 @@ class Block<TProps> {
 
     private _meta: { tagName: string; props: object; withInternalID?: boolean };
 
-    public eventBus: () => void;
+    public eventBus: Function;
 
     public children: object;
 
     public props: TProps;
 
-    public _id = '';
+    public _id: string = '';
 
     constructor(propsAndChildren: TProps, tagName = 'div') {
         const { children, props } = this._getChildren(propsAndChildren);
@@ -193,7 +192,7 @@ class Block<TProps> {
     private _makePropsProxy(props: any): TProps {
         const self = this;
 
-        return new Proxy(props, {
+        return new Proxy(props as any, {
             set(target, prop, value) {
                 target[prop] = value;
                 self.eventBus().emit(Block.EVENTS.FLOW_CDU);
@@ -204,7 +203,7 @@ class Block<TProps> {
                     throw new Error('Доступ отсутствует!');
                 }
 
-                const value = target[prop];
+                const value = target[prop] as any;
                 return typeof value === 'function' ? value.bind(target) : value;
             },
             deleteProperty() {
@@ -235,11 +234,11 @@ class Block<TProps> {
             if (isArray(child)) {
                 child.forEach((ch: Block<TProps>) => {
                     const stub = fragment.content.querySelector(`[data-id="${ch._id}"]`);
-                    stub.replaceWith(ch.getContent());
+                    stub?.replaceWith(ch.getContent());
                 });
             } else {
                 const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
-                stub.replaceWith(child.getContent());
+                stub?.replaceWith(child.getContent());
             }
         });
         return fragment.content;
