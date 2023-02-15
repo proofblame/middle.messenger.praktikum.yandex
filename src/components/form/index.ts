@@ -4,11 +4,11 @@ import Block from '../../utils/Block';
 import './form.css';
 
 type TProps = {
-    id: string;
-    formTitle: string;
-    buttonName: string;
-    routePath: string;
-    linkName: string;
+  id: string;
+  formTitle: string;
+  buttonName: string;
+  routePath: string;
+  linkName: string;
 } & TPropsDefault;
 
 export default class Form extends Block<TProps> {
