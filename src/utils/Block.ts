@@ -1,7 +1,6 @@
 import * as Handlebars from 'handlebars';
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
-// eslint-disable-next-line no-undef
 import isArray = Handlebars.Utils.isArray;
 import { ITempObj } from './Interfaces';
 

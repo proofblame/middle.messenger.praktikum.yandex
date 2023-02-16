@@ -28,9 +28,9 @@ export class LoginController {
                     UserAPI.request()
                         .then((responseData: any) => {
                             if (responseData.status === 200) {
-                                // store.set('user', this.tryCatchParse(responseData.responseText, this.parseError));
+                                store.set('user', this.tryCatchParse(responseData.responseText, this.parseError));
                                 UserChatController.getAllChats();
-                                router.go('/');
+                                router.go('/messenger');
                             } else {
                                 window.alert(this.tryCatchParse(response.response, this.parseError).reason);
                             }

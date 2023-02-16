@@ -6,7 +6,8 @@ import './account.css';
 
 type TProps = {
     profileData: any;
-    avatar: any;
+    avatar?: any;
+    button?: any;
 } & TPropsDefault;
 
 export default class Account extends Block<TProps> {
@@ -14,6 +15,7 @@ export default class Account extends Block<TProps> {
         return this.compile(tpl, {
             avatar: this.props.avatar,
             profileData: this.props.profileData,
+            button: this.props.button,
         });
     }
 }

@@ -5,23 +5,22 @@ import Account from '../../components/account';
 import Validation from '../../utils/Validation';
 import { ITempObj } from '../../utils/Interfaces';
 import avatar from '../../../static/images/avatar.png';
+import { UserController } from '../../controllers/profile.ctrl';
 
 const validation = new Validation();
 
 const rowsData = [
     {
         item: 'Старый пароль',
-        info: '.........',
-        id: 'password',
+        name: 'old_password',
     },
-    { item: 'Новый пароль', info: '............', id: 'password' },
+    { item: 'Новый пароль', name: 'password' },
     {
         item: 'Повторите новый пароль',
-        info: '............',
-        id: 'confirm_password',
+        name: 'confirm_password',
     },
 ];
-const rows = rowsData.map(
+const profileData = rowsData.map(
     (element) =>
         new InfoRow({
             ...element,
@@ -52,8 +51,7 @@ const button = new Button({ title: 'Сохранить', type: 'submit' });
 
 const UpdatePass = new Container({
     children: new Account({
-        avatar,
-        rows,
+        profileData,
         button,
         events: {
             submit: (event: Event) => {
@@ -63,9 +61,13 @@ const UpdatePass = new Container({
                     const inputFields = target.querySelectorAll('[data-required=true]');
                     const data: ITempObj = {};
                     inputFields.forEach((current: HTMLInputElement) => {
-                        data[current.id] = current.value;
+                        if (current.id === 'password') {
+                            data.newPassword = current.value;
+                        } else if (current.id === 'old_password') {
+                            data.oldPassword = current.value;
+                        }
                     });
-                    console.log(data);
+                    UserController.changeUserPassword(data);
                 }
             },
         },

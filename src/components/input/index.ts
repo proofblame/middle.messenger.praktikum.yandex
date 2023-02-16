@@ -8,7 +8,7 @@ export default class Input extends Block<IFormInput & TPropsDefault> {
     render() {
         return this.compile(tpl, {
             id: this.props.id,
-            name: this.props.name,
+            title: this.props.title,
             type: this.props.type,
             required: this.props.required,
         });

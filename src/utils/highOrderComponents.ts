@@ -4,7 +4,7 @@ import { isEqual } from './helpers';
 import { TPropsDefault } from './Interfaces';
 
 type Indexed<T = any> = {
-  [key in string]: T;
+    [key in string]: T;
 };
 type TProps = {} & TPropsDefault;
 export function connect(mapStateToProps: (state: Indexed) => Indexed) {
