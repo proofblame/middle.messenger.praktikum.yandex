@@ -29,7 +29,7 @@ export class LoginController {
                         .then((responseData: any) => {
                             if (responseData.status === 200) {
                                 // store.set('user', this.tryCatchParse(responseData.responseText, this.parseError));
-                                // UserChatController.getAllChats();
+                                UserChatController.getAllChats();
                                 router.go('/');
                             } else {
                                 window.alert(this.tryCatchParse(response.response, this.parseError).reason);

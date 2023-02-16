@@ -58,9 +58,13 @@ export interface IAvatar {
 }
 
 export interface IInfoBlock {
-  item: string;
   info?: string;
-  className: string;
+  item?: string;
+  id?: string;
+  disabled?: string;
+  className?: string;
+  required?: boolean;
+  type?: string;
 }
 
 export interface IMessage {

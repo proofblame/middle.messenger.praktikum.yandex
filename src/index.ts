@@ -24,7 +24,7 @@ router
     // .use('/500', Error500)
     // .use('/signup', Register)
     // .use('/messenger', Chat)
-    // .use('/profile', Profile)
+    .use('/profile', Profile)
     // .use('/profile-change', EditProfile)
     // .use('/password-change', UpdatePass)
     // .use('*', Error404)
