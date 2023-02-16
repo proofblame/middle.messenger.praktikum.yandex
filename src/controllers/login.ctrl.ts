@@ -42,7 +42,7 @@ export class LoginController {
                 } else {
                     const { reason } = this.tryCatchParse(response.response, this.parseError);
                     if (reason === this.errorMessage) {
-                        router.go('/messenger');
+                        router.go('/profile');
                     } else {
                         window.alert(reason);
                     }
@@ -78,7 +78,7 @@ export class LoginController {
         UserAPI.request()
             .then((responseData: any) => {
                 if (responseData.status === 200) {
-                    router.go('/messenger');
+                    router.go('/profile');
                 }
             })
             .catch((error: any) => {

@@ -1,13 +1,8 @@
 export const tpl = `
 <form class='profile'>
-    <div class='profile__logo'>
-        <div class='profile__img'>
-            <img src='{{avatar}}' alt='avatar' />
-        </div>
-        <p class='profile__name'>{{userName}}</p>
-    </div>
+    {{{avatar}}}
     <div class='profile__form'>
-        {{#each rows}}
+        {{#each profileData}}
             {{{this}}}
         {{/each}}
     </div>

@@ -57,10 +57,10 @@ export interface IAvatar {
   url: string;
 }
 
-export interface IInfoBlock {
+export interface IInfoRow {
   info?: string;
   item?: string;
-  id?: string;
+  name?: string;
   disabled?: string;
   className?: string;
   required?: boolean;

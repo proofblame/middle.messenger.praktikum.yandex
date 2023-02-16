@@ -1,10 +1,10 @@
 export const tpl = `
 <div class="info-row">
-  {{#if info}}
+  {{#if name}}
   <div class="info-row-wrapper">
-    <label for="{{id}}" class="info-row-label">{{item}}
+    <label for="{{name}}" class="info-row-label">{{item}}
     </label>
-    <input id="{{id}}" name="{{id}}" {{disabled}} class="info-row-input" value="{{info}}" {{#if required}}
+    <input id="{{name}}" name="{{name}}" {{disabled}} class="info-row-input" value="{{info}}" {{#if required}}
       data-required="{{required}}"
       {{/if}}
       type="{{type}}" />

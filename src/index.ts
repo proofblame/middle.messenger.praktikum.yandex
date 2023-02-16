@@ -17,9 +17,9 @@ import './index.css';
 const router = new Router('root');
 
 router
-    // .setUnprotectedPaths(['/', ''])
-    // .onRoute(LoginController.checkAuth)
-    // .onNotRoute(LoginController.checkNotAuth)
+    .setUnprotectedPaths(['/', '/signup'])
+    .onRoute(LoginController.checkAuth)
+    .onNotRoute(LoginController.checkNotAuth)
     .use('/', Login)
     // .use('/500', Error500)
     // .use('/signup', Register)
