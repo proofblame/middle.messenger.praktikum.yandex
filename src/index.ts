@@ -15,9 +15,9 @@ import Router from './utils/Router';
 const router = new Router('root');
 
 router
-    .setUnprotectedPaths(['/', '/signup'])
-    .onRoute(LoginController.checkAuth)
-    .onNotRoute(LoginController.checkNotAuth)
+    // .setUnprotectedPaths(['/', ''])
+    // .onRoute(LoginController.checkAuth)
+    // .onNotRoute(LoginController.checkNotAuth)
     .use('/', Login)
     // .use('/500', Error500)
     // .use('/signup', Register)
