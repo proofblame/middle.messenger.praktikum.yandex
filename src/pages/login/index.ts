@@ -3,6 +3,7 @@ import Form from '../../components/form';
 import Container from '../../components/container';
 import Validation from '../../utils/Validation';
 import { ITempObj } from '../../utils/Interfaces';
+import { LoginController } from '../../controllers/login.ctrl';
 
 const validation = new Validation();
 
@@ -51,11 +52,12 @@ const Login = new Container({
                 const target = event.target as HTMLFormElement;
                 if (validation.check(target)) {
                     const inputFields = target.querySelectorAll('[data-required=true]');
-                    const data: ITempObj = {};
+                    const data: any = {};
                     inputFields.forEach((current: HTMLInputElement) => {
                         data[current.id] = current.value;
                     });
-                    console.log(data);
+                    event.preventDefault();
+                    LoginController.login(data);
                 }
             },
         },

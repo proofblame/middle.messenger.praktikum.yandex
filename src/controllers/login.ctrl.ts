@@ -16,7 +16,7 @@ export class LoginController {
         try {
             return JSON.parse(response);
         } catch {
-            window.alert(errorMessage);
+           console.log(errorMessage);
             return {};
         }
     }
@@ -28,6 +28,7 @@ export class LoginController {
                     UserAPI.request()
                         .then((responseData: any) => {
                             if (responseData.status === 200) {
+
                                 store.set('user', this.tryCatchParse(responseData.responseText, this.parseError));
                                 UserChatController.getAllChats();
                                 router.go('/messenger');
@@ -57,8 +58,9 @@ export class LoginController {
             .then((responseData: any) => {
                 if (responseData.status === 200) {
                     try {
-                        store.set('user', JSON.parse(responseData.responseText));
+                      store.set('user', JSON.parse(responseData.responseText));
                     } catch {
+                      console.log(responseData.response)
                         window.alert('Ошибка извлечения данных');
                     }
                 } else {
