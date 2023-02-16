@@ -16,7 +16,7 @@ export class LoginController {
         try {
             return JSON.parse(response);
         } catch {
-            console.log(errorMessage);
+            window.alert(errorMessage);
             return {};
         }
     }
@@ -27,16 +27,17 @@ export class LoginController {
                 if (response.status === 200) {
                     UserAPI.request()
                         .then((responseData: any) => {
-                            store.set('user', this.tryCatchParse(responseData.responseText, this.parseError));
                             if (responseData.status === 200) {
-                                UserChatController.getAllChats();
-                                router.go('/messenger');
+                                // store.set('user', this.tryCatchParse(responseData.responseText, this.parseError));
+                                // UserChatController.getAllChats();
+                                router.go('/');
                             } else {
                                 window.alert(this.tryCatchParse(response.response, this.parseError).reason);
                             }
                         })
                         .catch((error: any) => {
-                            window.alert(error.reason || 'Ошибка ответа от сервера');
+                            window.alert(error);
+                            // window.alert(error.reason || 'Ошибка ответа от сервера');
                         });
                 } else {
                     const { reason } = this.tryCatchParse(response.response, this.parseError);
@@ -48,7 +49,8 @@ export class LoginController {
                 }
             })
             .catch((error: any) => {
-                window.alert(error.reason || 'Ошибка ответа от сервера');
+                window.alert(error);
+                // window.alert(error.reason || 'Ошибка ответа от сервера');
             });
     }
 
@@ -58,8 +60,8 @@ export class LoginController {
                 if (responseData.status === 200) {
                     try {
                         store.set('user', JSON.parse(responseData.responseText));
+                        console.log(responseData.responseText)
                     } catch {
-                        console.log(responseData.response);
                         window.alert('Ошибка извлечения данных');
                     }
                 } else {
@@ -67,7 +69,8 @@ export class LoginController {
                 }
             })
             .catch((error: any) => {
-                window.alert(error.reason || 'Ошибка ответа от сервера');
+                window.alert(error);
+                // window.alert(error.reason || 'Ошибка ответа от сервера');
             });
     }
 
@@ -79,7 +82,8 @@ export class LoginController {
                 }
             })
             .catch((error: any) => {
-                window.alert(error.reason || 'Ошибка ответа от сервера');
+                window.alert(error);
+                // window.alert(error.reason || 'Ошибка ответа от сервера');
             });
     }
 }

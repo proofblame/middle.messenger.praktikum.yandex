@@ -75,11 +75,11 @@ export interface IMessage {
 }
 
 export interface ISignForm {
-  formName: string;
-  submitName: string;
-  submitSubName: string;
-  routeSubName: string;
-  forms: any;
+  formTitle: string;
+  buttonName: string;
+  linkName: string;
+  routePath: string;
+  inputs: any;
   id: string;
 }
 

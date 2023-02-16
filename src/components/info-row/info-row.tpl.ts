@@ -11,7 +11,7 @@ export const tpl = `
     <span class="info-row-error"></span>
   </div>
   {{else}}
-  <button class="info-row-button {{className}}">{{item}}</button>
+  <button class="info-row-button {{className}}" onclick={{onClick}}>{{item}}</button>
   {{/if}}
 </div>
 `;

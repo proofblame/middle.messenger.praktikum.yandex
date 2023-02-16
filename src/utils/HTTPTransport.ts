@@ -61,7 +61,7 @@ export default class HTTPTransport {
         new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
 
-
+            xhr.withCredentials = true;
 
             xhr.open(
                 options.method,
@@ -96,6 +96,5 @@ export default class HTTPTransport {
             } else {
                 xhr.send(options.body);
             }
-            xhr.withCredentials = true;
         });
 }

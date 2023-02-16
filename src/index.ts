@@ -1,4 +1,4 @@
-import './index.css';
+
 import Login from './pages/login';
 import Register from './pages/register';
 import Error404 from './pages/error-404';
@@ -12,6 +12,8 @@ import Chat from './pages/chat';
 import { LoginController } from './controllers/login.ctrl';
 import Router from './utils/Router';
 
+import './index.css';
+
 const router = new Router('root');
 
 router
@@ -21,7 +23,7 @@ router
     .use('/', Login)
     // .use('/500', Error500)
     // .use('/signup', Register)
-    // // .use('/messenger', Chat)
+    // .use('/messenger', Chat)
     // .use('/profile', Profile)
     // .use('/profile-change', EditProfile)
     // .use('/password-change', UpdatePass)

@@ -7,13 +7,13 @@ import { LoginController } from '../../controllers/login.ctrl';
 const validation = new Validation();
 
 const inputsData = [
-    { id: 'login', title: 'Логин', type: 'text' },
-    { id: 'password', title: 'Пароль', type: 'password' },
+    { id: 'login', name: 'Логин', type: 'text' },
+    { id: 'password', name: 'Пароль', type: 'password' },
 ];
 
 interface LoginFormModel {
-  login: string;
-  password: string;
+    login: string;
+    password: string;
 }
 
 const inputs = inputsData.map(
@@ -45,11 +45,11 @@ const inputs = inputsData.map(
 const Login = new Container({
     children: new Form({
         inputs,
-        id: 'login',
         formTitle: 'Вход',
         buttonName: 'Авторизоваться',
-        routePath: '/signup',
         linkName: 'Нет аккаунта?',
+        routePath: '/signup',
+        id: 'loginForm',
         events: {
             submit: (event: Event) => {
                 event.preventDefault();
