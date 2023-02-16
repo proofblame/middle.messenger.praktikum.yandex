@@ -28,15 +28,16 @@ export class LoginController {
                     UserAPI.request()
                         .then((responseData: any) => {
                             if (responseData.status === 200) {
-                                store.set('user', this.tryCatchParse(responseData.responseText, this.parseError));
+                                // store.set('user', this.tryCatchParse(responseData.responseText, this.parseError));
                                 UserChatController.getAllChats();
-                                router.go('/messenger');
+                                router.go('/');
                             } else {
                                 window.alert(this.tryCatchParse(response.response, this.parseError).reason);
                             }
                         })
                         .catch((error: any) => {
-                            window.alert(error.reason || 'Ошибка ответа от сервера');
+                            window.alert(error);
+                            // window.alert(error.reason || 'Ошибка ответа от сервера');
                         });
                 } else {
                     const { reason } = this.tryCatchParse(response.response, this.parseError);
@@ -48,16 +49,18 @@ export class LoginController {
                 }
             })
             .catch((error: any) => {
-                window.alert(error.reason || 'Ошибка ответа от сервера');
+                window.alert(error);
+                // window.alert(error.reason || 'Ошибка ответа от сервера');
             });
     }
 
     static checkAuth() {
         UserAPI.request()
             .then((responseData: any) => {
-                if (responseData.ok === 200) {
+                if (responseData.status === 200) {
                     try {
                         store.set('user', JSON.parse(responseData.responseText));
+                        console.log(responseData.responseText)
                     } catch {
                         window.alert('Ошибка извлечения данных');
                     }
@@ -66,7 +69,8 @@ export class LoginController {
                 }
             })
             .catch((error: any) => {
-                window.alert(error.reason || 'Ошибка ответа от сервера');
+                window.alert(error);
+                // window.alert(error.reason || 'Ошибка ответа от сервера');
             });
     }
 
@@ -78,7 +82,8 @@ export class LoginController {
                 }
             })
             .catch((error: any) => {
-                window.alert(error.reason || 'Ошибка ответа от сервера');
+                window.alert(error);
+                // window.alert(error.reason || 'Ошибка ответа от сервера');
             });
     }
 }

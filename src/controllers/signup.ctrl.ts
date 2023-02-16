@@ -28,7 +28,7 @@ export class UserSignUpController {
                                 try {
                                     store.set('user', JSON.parse(responseData.responseText));
                                 } catch {
-                                    // window.alert('Ошибка извлечения данных');
+                                    window.alert('Ошибка извлечения данных');
                                 }
                                 router.go('/messenger');
                             } else {

@@ -6,6 +6,10 @@ import Validation from '../../utils/Validation';
 import Block from '../../utils/Block';
 import { ITempObj, TPropsDefault } from '../../utils/Interfaces';
 import MessageCompose from '../../components/message-compose';
+import { UserChatController } from '../../controllers/chats.ctrl';
+import { connect } from '../../utils/highOrderComponents';
+
+UserChatController.getAllChats();
 
 const validation = new Validation();
 
