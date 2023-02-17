@@ -1,21 +1,37 @@
 import { tpl } from './message-area.tpl';
-import { TPropsDefault } from '../../utils/Interfaces';
+import { IMessage, TPropsDefault } from '../../utils/Interfaces';
 import Block from '../../utils/Block';
+import Handlebars from 'handlebars';
 
 import './message-area.css';
+import store from '../../utils/store';
+import { connect } from '../../utils/highOrderComponents';
 
 type TProps = {
-    isMe?: boolean;
-    text: string;
-    time: string;
+    messages: IMessage[];
 } & TPropsDefault;
 
-export default class MessageArea extends Block<TProps> {
+Handlebars.registerHelper('isAuthor', (value) => value === store.getState().user?.id);
+Handlebars.registerHelper('getTime', (value) => new Date(value).toLocaleTimeString());
+
+class MessageArea extends Block<TProps> {
     render() {
         return this.compile(tpl, {
-            isMe: this.props.isMe,
-            text: this.props.text,
-            time: this.props.time,
+            messages: this.props.messages,
         });
     }
 }
+
+const tempM = [{}];
+
+const MessageWrapState = connect((state) => ({
+    messages: state.messages,
+}));
+
+const MessageWithState = MessageWrapState(MessageArea);
+
+const MessageState = new MessageWithState({
+    messages: tempM,
+});
+
+export default MessageState;
