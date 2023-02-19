@@ -1,5 +1,7 @@
 {
+  "parser": "postcss-scss",
   "plugins": {
+    "stylelint": true,
     "postcss-simple-vars": true,
     "postcss-nested": true
   }

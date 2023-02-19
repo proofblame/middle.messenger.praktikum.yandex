@@ -1,7 +1,7 @@
-.message-area {
+/* .message-area {
   background: var(--color-white-light);
   padding: 11px;
-  border-radius: 0 8px 8px 8px;
+  border-radius: 0 8px 8px;
   margin-bottom: 10px;
   max-width: 60%;
   align-self: start;
@@ -10,10 +10,36 @@
 
   &_me {
     align-self: end;
-    border-radius: 8px 8px 0 8px;
+    border-radius: 8px 8px 0;
     background: var(--color-light-blue);
   }
+
   & span {
+    float: right;
+    font-size: 9px;
+    color: var(--color-gray);
+    bottom: -10px;
+    margin-left: 10px;
+    position: relative;
+  }
+} */
+.message__block {
+  background: var(--color-white-light);
+  padding: 11px;
+  border-radius: 0 8px 8px;
+  margin-bottom: 10px;
+  max-width: 60%;
+  align-self: start;
+  text-align: start;
+  line-height: 15px;
+
+  &_from-me {
+    align-self: end !important;
+    border-radius: 8px 8px 0 !important;
+    background: var(--color-light-blue) !important;
+  }
+
+  time {
     float: right;
     font-size: 9px;
     color: var(--color-gray);

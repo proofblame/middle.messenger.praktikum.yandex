@@ -1,0 +1,8 @@
+build
+dist
+node_modules
+*.css
+*.html
+.cache
+.github
+static

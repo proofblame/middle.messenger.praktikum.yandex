@@ -3,15 +3,15 @@
 @import url("./templates/account/account.css");
 
 :root {
-  --color-white: #ffffff;
-  --color-dark: #000000;
+  --color-white: #fff;
+  --color-dark: #000;
   --color-black: #1e1e1e;
-  --color-gray: #999999;
+  --color-gray: #999;
   --color-blue: #3369f3;
   --color-light-blue: #e4edfd;
   --color-whitesmoke: #efefef;
   --color-whisper: #eaeaea;
-  --color-red: #ff0000;
+  --color-red: #f00;
   --color-snow: #fbfbfb;
   --color-white-light: #f8f8f8;
 }
@@ -36,7 +36,7 @@ body {
 }
 
 body {
-  font-family: "Inter", "Arial", sans-serif;
+  font-family: "Inter, Arial", sans-serif;
   background: var(--color-white);
 }
 
@@ -50,13 +50,6 @@ input::-ms-clear {
   display: none;
 }
 
-a:focus,
-a:active,
-button:focus,
-button:active {
-  outline: none;
-}
-
 button {
   cursor: pointer;
 }
@@ -65,9 +58,18 @@ a,
 a:visited {
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: none;
 }
+
+a:focus,
+a:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
 ul li {
   list-style: none;
 }

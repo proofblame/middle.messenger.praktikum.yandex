@@ -1,24 +1,41 @@
-.info__row {
+.info-row {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid var(--color-whisper);
 
-  &:last-child {
-    border-bottom: none;
+  &-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    text-align: left;
   }
+
+  &-error {
+    color: var(--color-red);
+    font-size: 8px;
+    line-height: 8px;
+    display: block;
+    margin-top: 5px;
+    text-align: start;
+  }
+
   &-label {
     color: var(--color-black);
     font-weight: 500;
   }
+
   &-input {
     color: var(--color-gray);
     background: transparent;
     text-align: right;
   }
+
   &-button {
     color: var(--color-blue);
     background: transparent;
+
     &.color-red {
       color: var(--color-red);
     }
