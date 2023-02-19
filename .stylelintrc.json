@@ -1,5 +1,5 @@
 {
-    "extends": "stylelint-config-standard",
+    "extends": "stylelint-selector-bem-pattern",
     "rules": {
         "color-hex-case": "lower"
     },
