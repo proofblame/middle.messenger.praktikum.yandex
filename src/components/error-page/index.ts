@@ -1,15 +1,9 @@
 import { tpl } from './error-page.tpl';
 import './error-page.css';
 import Block from '../../utils/Block';
-import { TPropsDefault } from '../../utils/Interfaces';
+import { TPropsDefault, IErrorPageBlock } from '../../utils/Interfaces';
 
-type TProps = {
-  number: string | number;
-  message: string;
-  routePath: string;
-} & TPropsDefault;
-
-export default class ErrorPage extends Block<TProps> {
+export default class ErrorPage extends Block<IErrorPageBlock & TPropsDefault> {
     render() {
         return this.compile(tpl, {
             number: this.props.number,

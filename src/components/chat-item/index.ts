@@ -1,8 +1,8 @@
+import Handlebars from 'handlebars';
 import { tpl } from './chat-item.tpl';
 import { IChat, TPropsDefault } from '../../utils/Interfaces';
 import Block from '../../utils/Block';
 import './chat-item.css';
-import Handlebars from 'handlebars';
 import { connect } from '../../utils/highOrderComponents';
 import store from '../../utils/store';
 import { UserChatController } from '../../controllers/chats.ctrl';

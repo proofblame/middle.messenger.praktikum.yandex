@@ -1,7 +1,7 @@
+import Handlebars from 'handlebars';
 import { tpl } from './message-area.tpl';
 import { IMessage, TPropsDefault } from '../../utils/Interfaces';
 import Block from '../../utils/Block';
-import Handlebars from 'handlebars';
 
 import './message-area.css';
 import store from '../../utils/store';

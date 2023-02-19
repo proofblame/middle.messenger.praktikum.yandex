@@ -1,4 +1,6 @@
-export const tpl = `<div class="chat-item" id='{{id}}'>
+export const tpl = `
+{{#each chats}}
+<div class="chat-item" id='{{id}}'>
   <div class="chat-item__logo">
     <div class="chat-item__logo-img"></div>
   </div>
@@ -17,4 +19,5 @@ export const tpl = `<div class="chat-item" id='{{id}}'>
     </div>
   </div>
 </div>
+{{/each}}
 `;

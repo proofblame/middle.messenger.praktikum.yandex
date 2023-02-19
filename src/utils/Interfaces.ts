@@ -34,23 +34,15 @@ export interface IChat {
 
 export interface IFormInput {
   id: string;
-  name: string;
+  title: string;
   type: string;
   required: boolean;
 }
 
 export interface IErrorPageBlock {
-  errorNumber: string | number;
-  errorMessage: string;
-}
-
-export interface IChangeInfoBlock {
-  item: string;
-  info: string;
-  id: string;
-  type: string;
-  className: string;
-  required: boolean;
+    number: string | number;
+    message: string;
+    routePath: string;
 }
 
 export interface IAvatar {

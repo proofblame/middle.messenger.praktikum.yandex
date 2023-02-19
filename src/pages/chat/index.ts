@@ -2,24 +2,25 @@ import { tpl } from './chat.tpl';
 import './chat.css';
 import ChatItem from '../../components/chat-item';
 import MessageState from '../../components/message-area';
-import Validation from '../../utils/Validation';
 import Block from '../../utils/Block';
-import { ITempObj, TPropsDefault } from '../../utils/Interfaces';
+import { TPropsDefault } from '../../utils/Interfaces';
 import MessageCompose from '../../components/message-compose';
 import { UserChatController } from '../../controllers/chats.ctrl';
 import { connect } from '../../utils/highOrderComponents';
+import Router from '../../utils/Router';
+import store from '../../utils/store';
+import { ChatController } from '../../controllers/message.ctrl';
 
 UserChatController.getAllChats();
-
-const validation = new Validation();
 
 type TProps = {} & TPropsDefault;
 
 class Chats extends Block<TProps> {
     render() {
         return this.compile(tpl, {
-            chats: this.props.chats,
-            messages: this.props.messages,
+            chatsData: this.props.chatsData,
+            messagesData: this.props.messagesData,
+            messageCompose: this.props.messageCompose,
             chatTitle: this.props.chatTitle,
         });
     }
@@ -32,22 +33,51 @@ const ChatsWrapState = connect((state) => ({
 const ChatsWithState = ChatsWrapState(Chats);
 
 const ChatsPage = new ChatsWithState({
-    chats: ChatItem,
-    messages: MessageState,
+    chatsData: ChatItem,
+    chatTitle: '',
+    messagesData: MessageState,
+    events: {
+        click: (event: Event) => {
+            event.preventDefault();
+            const target = event.target as HTMLInputElement;
+            if (target.id === 'chats-btn-profile') {
+                const router = new Router('root');
+                router.go('/profile');
+            }
+            if (target.id === 'chats-header--btn') {
+                UserChatController.createChat();
+            }
+            if (target.classList.contains('chats-messages__option-delete')) {
+                UserChatController.deleteChat();
+            }
+            if (target.classList.contains('chats-messages__option-delete-user')) {
+                UserChatController.deleteUserFromChat();
+            }
+            if (target.classList.contains('chats-messages__option-add')) {
+                UserChatController.addUserFromChat();
+            }
+            if (target.classList.contains('chats__header-lope')) {
+                const { value } = document.querySelector('.chats__header-input') as HTMLInputElement;
+                store.set(
+                    'filteredChats',
+                    store
+                        .getState()
+                        .chats.filter((chat: any) => chat.title.toLowerCase().includes(value.toLowerCase())),
+                );
+            }
+        },
+    },
     messageCompose: new MessageCompose({
         events: {
-            submit: (event: Event) => {
+            click: (event: Event) => {
                 event.preventDefault();
                 const target = event.target as HTMLFormElement;
-                if (validation.check(target)) {
-                    const inputFields = target.querySelectorAll('[data-required=true]');
-                    const data: ITempObj = {};
-                    inputFields.forEach((current: HTMLInputElement) => {
-                        data[current.id] = current.value;
-                    });
-                    console.log(data);
-                } else {
-                    console.log('Введите сообщение');
+                if (target.classList.contains('chats-messages__submit')) {
+                    const mes = document.getElementById('message') as HTMLInputElement;
+                    if (mes.value) {
+                        ChatController.sendMessage(mes.value);
+                        mes.value = '';
+                    }
                 }
             },
         },

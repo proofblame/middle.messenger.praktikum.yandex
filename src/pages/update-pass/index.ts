@@ -4,7 +4,6 @@ import Button from '../../components/button';
 import Account from '../../components/account';
 import Validation from '../../utils/Validation';
 import { ITempObj } from '../../utils/Interfaces';
-import avatar from '../../../static/images/avatar.png';
 import { UserController } from '../../controllers/profile.ctrl';
 
 const validation = new Validation();

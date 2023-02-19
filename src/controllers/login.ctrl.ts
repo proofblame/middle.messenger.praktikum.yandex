@@ -36,21 +36,19 @@ export class LoginController {
                             }
                         })
                         .catch((error: any) => {
-                            window.alert(error);
-                            // window.alert(error.reason || 'Ошибка ответа от сервера');
+                            window.alert(error.reason || 'Ошибка ответа от сервера');
                         });
                 } else {
                     const { reason } = this.tryCatchParse(response.response, this.parseError);
                     if (reason === this.errorMessage) {
-                        router.go('/profile');
+                        router.go('/messenger');
                     } else {
                         window.alert(reason);
                     }
                 }
             })
             .catch((error: any) => {
-                window.alert(error);
-                // window.alert(error.reason || 'Ошибка ответа от сервера');
+                window.alert(error.reason || 'Ошибка ответа от сервера');
             });
     }
 
@@ -60,7 +58,6 @@ export class LoginController {
                 if (responseData.status === 200) {
                     try {
                         store.set('user', JSON.parse(responseData.responseText));
-                        console.log(responseData.responseText)
                     } catch {
                         window.alert('Ошибка извлечения данных');
                     }
@@ -69,8 +66,7 @@ export class LoginController {
                 }
             })
             .catch((error: any) => {
-                window.alert(error);
-                // window.alert(error.reason || 'Ошибка ответа от сервера');
+                window.alert(error.reason || 'Ошибка ответа от сервера');
             });
     }
 
@@ -78,12 +74,11 @@ export class LoginController {
         UserAPI.request()
             .then((responseData: any) => {
                 if (responseData.status === 200) {
-                    router.go('/profile');
+                    router.go('/messenger');
                 }
             })
             .catch((error: any) => {
-                window.alert(error);
-                // window.alert(error.reason || 'Ошибка ответа от сервера');
+                window.alert(error.reason || 'Ошибка ответа от сервера');
             });
     }
 }
