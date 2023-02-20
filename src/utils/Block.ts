@@ -127,7 +127,6 @@ class Block<TProps> {
         const { className = '' }: any = this.props;
         if (!className) return;
         if (isArray(className)) {
-            // @ts-ignore
             className.forEach((el: string) => {
                 this._element.classList.add(el);
             });
@@ -220,7 +219,6 @@ class Block<TProps> {
             if (isArray(child)) {
                 propsAndStubs[key] = [];
                 child.forEach((ch: Block<TProps>) => {
-                    // @ts-ignore
                     propsAndStubs[key].push(`<div data-id="${ch._id}"></div>`);
                 });
             } else {
@@ -246,7 +244,6 @@ class Block<TProps> {
 
     private _createDocumentElement(tagName: string) {
         const element = document.createElement(tagName);
-        // @ts-ignore
         if (this.props.settings?.withInternalID) {
             element.setAttribute('data-id', this._id);
         }

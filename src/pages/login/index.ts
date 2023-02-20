@@ -3,6 +3,7 @@ import Form from '../../components/form';
 import Container from '../../components/container';
 import Validation from '../../utils/Validation';
 import { LoginController } from '../../controllers/login.ctrl';
+import { ILoginFormModel } from '../../utils/Interfaces';
 
 const validation = new Validation();
 
@@ -10,11 +11,6 @@ const inputsData = [
     { id: 'login', name: 'Логин', type: 'text' },
     { id: 'password', name: 'Пароль', type: 'password' },
 ];
-
-interface LoginFormModel {
-    login: string;
-    password: string;
-}
 
 const inputs = inputsData.map(
     (input) =>
@@ -56,13 +52,13 @@ const Login = new Container({
                 const target = event.target as HTMLFormElement;
                 if (validation.check(target)) {
                     const inputFields = target.querySelectorAll('[data-required=true]');
-                    const data: LoginFormModel = {
+                    const data: ILoginFormModel = {
                         login: '',
                         password: '',
                     };
                     inputFields.forEach((current: HTMLInputElement) => {
-                        // @ts-ignore
-                        data[current.id] = current.value;
+                        const _id = current.id as keyof ILoginFormModel;
+                        data[_id] = current.value;
                     });
                     LoginController.login(data);
                 }

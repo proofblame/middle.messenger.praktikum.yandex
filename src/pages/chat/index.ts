@@ -57,7 +57,8 @@ const ChatsPage = new ChatsWithState({
                 UserChatController.addUserFromChat();
             }
             if (target.classList.contains('chats__header-lope')) {
-                const { value } = document.querySelector('.chats__header-input') as HTMLInputElement;
+                const input = document.querySelector('.chats__header-input') as HTMLInputElement;
+                const { value } = input;
                 store.set(
                     'filteredChats',
                     store
@@ -65,6 +66,9 @@ const ChatsPage = new ChatsWithState({
                         .chats.filter((chat: any) => chat.title.toLowerCase().includes(value.toLowerCase())),
                 );
             }
+        },
+        submit: (event: Event) => {
+            event.preventDefault();
         },
     },
     messageCompose: new MessageCompose({
