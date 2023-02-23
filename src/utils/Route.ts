@@ -17,7 +17,7 @@ export default class Route {
 
     private _block: Block<TPropsDefault> | null;
 
-    private _props: object;
+    private _props: any;
 
     constructor(pathname: string, view: Block<TPropsDefault>, props: IProps) {
         this._pathname = pathname;
@@ -35,7 +35,6 @@ export default class Route {
 
     leave() {
         if (this._block) {
-            // @ts-ignore
             this._block.hide();
         }
     }
@@ -47,7 +46,6 @@ export default class Route {
     render() {
         if (!this._block) {
             this._block = this._blockClass;
-            // @ts-ignore
             render(this._props.rootQuery, this._block);
             return;
         }

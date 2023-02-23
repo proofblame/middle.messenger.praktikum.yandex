@@ -34,7 +34,7 @@ export interface IChat {
 
 export interface IFormInput {
   id: string;
-  title: string;
+  title?: string;
   type: string;
   required: boolean;
 }

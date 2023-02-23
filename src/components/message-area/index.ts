@@ -1,4 +1,3 @@
-import Handlebars from 'handlebars';
 import { tpl } from './message-area.tpl';
 import { IMessage, TPropsDefault } from '../../utils/Interfaces';
 import Block from '../../utils/Block';
@@ -7,12 +6,14 @@ import './message-area.css';
 import store from '../../utils/store';
 import { connect } from '../../utils/highOrderComponents';
 
+const Handlebars = require('handlebars/dist/cjs/handlebars');
+
 type TProps = {
     messages: IMessage[];
 } & TPropsDefault;
-
-Handlebars.registerHelper('isAuthor', (value) => value === store.getState().user?.id);
-Handlebars.registerHelper('getTime', (value) => new Date(value).toLocaleTimeString());
+// @ts-ignore
+Handlebars.registerHelper('isAuthor', (value: string) => value === store.getState().user?.id);
+Handlebars.registerHelper('getTime', (value: string | number | Date) => new Date(value).toLocaleTimeString());
 
 class MessageArea extends Block<TProps> {
     render() {

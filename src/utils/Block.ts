@@ -1,8 +1,10 @@
-import * as Handlebars from 'handlebars';
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
-import isArray = Handlebars.Utils.isArray;
 import { ITempObj } from './Interfaces';
+
+const Handlebars = require('handlebars/dist/cjs/handlebars');
+
+const { isArray } = Handlebars.Utils;
 
 class Block<TProps> {
     static EVENTS = {
@@ -45,13 +47,16 @@ class Block<TProps> {
     private _getChildren(propsAndChildren: TProps) {
         const children: { [key: string]: Block<TProps> } = {};
         const props: ITempObj = {};
-
+        // @ts-ignore
         Object.entries(propsAndChildren).forEach(([key, value]) => {
             if (value instanceof Block) {
                 children[key] = value;
+                // @ts-ignore
             } else if (isArray(value) && value[0] instanceof Block) {
+                // @ts-ignore
                 children[key] = value;
             } else {
+                // @ts-ignore
                 props[key] = value;
             }
         });
@@ -127,7 +132,6 @@ class Block<TProps> {
         const { className = '' }: any = this.props;
         if (!className) return;
         if (isArray(className)) {
-            // @ts-ignore
             className.forEach((el: string) => {
                 this._element.classList.add(el);
             });
@@ -163,7 +167,7 @@ class Block<TProps> {
         if (!nextProps) {
             return;
         }
-
+        // @ts-ignore
         Object.assign(this.props, nextProps);
     };
 

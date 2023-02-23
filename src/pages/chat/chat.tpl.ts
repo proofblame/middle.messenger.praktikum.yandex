@@ -7,7 +7,9 @@ export const tpl = `
         <button class="chats__header__profile" id='chats-btn-profile'>Профиль</button>
       </div>
       <div class="chats__header-search">
-      <input class="chats__header-input" type='text' placeholder='Введите имя и нажмите на кнопку' />
+      <form id="chats__header-form" class="chats__header-form">
+        <input class="chats__header-input" type='text' placeholder='Введите имя и нажмите на кнопку' />
+      </form>
       <div class="chats__header-lope">🔍</div>
      </div>
     </div>

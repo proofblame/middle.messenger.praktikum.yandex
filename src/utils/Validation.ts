@@ -1,5 +1,6 @@
 export default class Validation {
     password = (value: string): boolean =>
+        // /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
         /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,40}$/.test(value);
 
     phone = (value: string): boolean =>
