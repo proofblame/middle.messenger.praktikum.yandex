@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "webpack serve",
     "build": "webpack --mode production",
-    "start": "npm run build && node server.js",
+    "start": "npm run build && node app.js",
     "lint": "eslint --fix --ext .js,.ts .",
     "lint:ts": "tsc --noEmit --incremental false",
     "lint:prettier": "prettier . --check",
