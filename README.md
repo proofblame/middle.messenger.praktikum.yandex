@@ -25,3 +25,4 @@
 ## Посмотреть
 
 Netlify: https://effervescent-axolotl-2abc77.netlify.app/
+Render: https://telega-chat.onrender.com/
