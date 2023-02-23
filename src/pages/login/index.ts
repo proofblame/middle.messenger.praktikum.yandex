@@ -8,8 +8,8 @@ import { ILoginFormModel } from '../../utils/Interfaces';
 const validation = new Validation();
 
 const inputsData = [
-    { id: 'login', name: 'Логин', type: 'text' },
-    { id: 'password', name: 'Пароль', type: 'password' },
+    { id: 'login', title: 'Логин', type: 'text' },
+    { id: 'password', title: 'Пароль', type: 'password' },
 ];
 
 const inputs = inputsData.map(

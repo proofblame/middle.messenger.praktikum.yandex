@@ -63,6 +63,7 @@ const ChatsPage = new ChatsWithState({
                     'filteredChats',
                     store
                         .getState()
+                        // @ts-ignore
                         .chats.filter((chat: any) => chat.title.toLowerCase().includes(value.toLowerCase())),
                 );
             }

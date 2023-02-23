@@ -12,6 +12,7 @@ export function connect(mapStateToProps: (state: Indexed) => Indexed) {
         return class extends Component {
             constructor(...props: any) {
                 let state = mapStateToProps(store.getState());
+                // @ts-ignore
                 super(...props);
                 store.on(StoreEvents.Updated, () => {
                     const newState = mapStateToProps(store.getState());
