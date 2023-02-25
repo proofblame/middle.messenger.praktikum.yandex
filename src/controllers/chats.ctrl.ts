@@ -10,6 +10,7 @@ export class UserChatController {
             return;
         }
         const data = {
+            // @ts-ignore
             chatId: store.getState().active.chat.id,
             users: [Number(userId)],
         };
@@ -23,6 +24,7 @@ export class UserChatController {
             return;
         }
         const data = {
+            // @ts-ignore
             chatId: store.getState().active.chat.id,
             users: [Number(userId)],
         };
@@ -54,6 +56,7 @@ export class UserChatController {
             return;
         }
         const data = {
+            // @ts-ignore
             chatId: store.getState().active.chat.id,
         };
         ChatApi.delete(data)
@@ -95,7 +98,7 @@ export class UserChatController {
         store.set('active.chat', {});
 
         const activeChatObj: any = this.getActiveChat(chatItem.id);
-
+        // @ts-ignore
         if (activeChatObj.id !== store.getState()?.active?.chat?.id) {
             store.set('active.chat', activeChatObj);
             ChatController.createSessionsMessage(chatItem.id, userId);
@@ -104,6 +107,7 @@ export class UserChatController {
 
     static getActiveChat(chatId: string) {
         let currentItem;
+        // @ts-ignore
         store.getState().chats.forEach((item: any) => {
             if (item.id.toString() === chatId) {
                 currentItem = item;

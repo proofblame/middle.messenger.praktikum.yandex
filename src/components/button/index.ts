@@ -6,7 +6,7 @@ import './button.css';
 
 type TProps = {
     title: string;
-    type: string;
+    type?: string;
 } & TPropsDefault;
 
 export default class Button extends Block<TProps> {

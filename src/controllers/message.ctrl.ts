@@ -39,6 +39,7 @@ export class ChatController {
                         if (Array.isArray(eventJson)) {
                             store.set('messages', eventJson.reverse());
                         } else if (eventJson.type === 'message') {
+                            // @ts-ignore
                             store.set('messages', [...store.getState().messages, eventJson]);
                         }
                         const elem = document.querySelector('.chats-messages--body>div');
@@ -71,6 +72,7 @@ export class ChatController {
     }
 
     static sendMessage(message: string) {
+        // @ts-ignore
         store.getState().active.socket.send(
             JSON.stringify({
                 content: message,

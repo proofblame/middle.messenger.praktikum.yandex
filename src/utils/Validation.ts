@@ -1,6 +1,7 @@
 export default class Validation {
     password = (value: string): boolean =>
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
+        // /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
+        /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,40}$/.test(value);
 
     phone = (value: string): boolean =>
         this.checkLength(10, 15, value) && /^[+]?[0-9]+$/.test(value) && this.checkEmptyValue(value);
@@ -39,6 +40,7 @@ export default class Validation {
             }
 
             if (
+                // @ts-ignore
                 !this[input.id === 'first_name' || input.id === 'second_name' ? 'names' : input.id](input.value)
             ) {
                 isValid = false;
