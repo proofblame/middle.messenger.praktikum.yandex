@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const webpackNodeExternals = require('webpack-node-externals');
 
 module.exports = {
     mode: 'development',
@@ -56,8 +55,6 @@ module.exports = {
             },
         ],
     },
-    // externalsPresets: { node: true },
-    // externals: [webpackNodeExternals()],
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
