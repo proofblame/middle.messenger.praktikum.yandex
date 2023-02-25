@@ -61,11 +61,9 @@
     "file-loader": "6.2.0",
     "html-webpack-plugin": "5.5.0",
     "husky": "8.0.3",
-    "image-webpack-loader": "8.1.0",
     "jsdom": "21.1.0",
     "mini-css-extract-plugin": "2.7.2",
     "mocha": "10.2.0",
-    "parcel-transformer-hbs": "1.0.4",
     "postcss": "8.4.21",
     "postcss-loader": "7.0.2",
     "postcss-modules": "6.0.0",
@@ -83,7 +81,8 @@
     "webpack": "5.75.0",
     "webpack-cli": "5.0.1",
     "webpack-dev-server": "4.11.1",
-    "webpack-node-externals": "3.0.0"
+    "webpack-node-externals": "3.0.0",
+    "xhr2": "^0.2.1"
   },
   "dependencies": {
     "@babel/register": "7.21.0",
