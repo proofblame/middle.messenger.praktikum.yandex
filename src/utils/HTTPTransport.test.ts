@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import HTTPTransport from './HTTPTransport';
 
+const TEST_URL = 'https://jsonplaceholder.typicode.com';
+
 describe('HTTP Methods', () => {
     beforeEach(() => {
         // eslint-disable-next-line global-require
@@ -8,7 +10,7 @@ describe('HTTP Methods', () => {
     });
 
     it('check get method', () => {
-        const http = new HTTPTransport('https://jsonplaceholder.typicode.com');
+        const http = new HTTPTransport(TEST_URL);
         return http.get('/posts/1').then((value) => {
             // @ts-ignore
             expect(value.status).to.equal(200);
@@ -16,7 +18,7 @@ describe('HTTP Methods', () => {
     });
 
     it('check Post method', () => {
-        const http = new HTTPTransport('https://jsonplaceholder.typicode.com');
+        const http = new HTTPTransport(TEST_URL);
         return http
             .post('/posts', {
                 headers: {
@@ -35,7 +37,7 @@ describe('HTTP Methods', () => {
     });
 
     it('check Put method', () => {
-        const http = new HTTPTransport('https://jsonplaceholder.typicode.com');
+        const http = new HTTPTransport(TEST_URL);
         return http
             .put('/posts/1', {
                 headers: {
@@ -55,7 +57,7 @@ describe('HTTP Methods', () => {
     });
 
     it('check Delete method', () => {
-        const http = new HTTPTransport('https://jsonplaceholder.typicode.com');
+        const http = new HTTPTransport(TEST_URL);
         return http
             .delete('/posts/1', {
                 headers: {

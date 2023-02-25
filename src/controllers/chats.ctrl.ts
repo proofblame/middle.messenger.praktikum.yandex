@@ -98,7 +98,7 @@ export class UserChatController {
         store.set('active.chat', {});
 
         const activeChatObj: any = this.getActiveChat(chatItem.id);
-// @ts-ignore
+        // @ts-ignore
         if (activeChatObj.id !== store.getState()?.active?.chat?.id) {
             store.set('active.chat', activeChatObj);
             ChatController.createSessionsMessage(chatItem.id, userId);

@@ -9,6 +9,7 @@ export default class Container extends Block<TProps> {
     render() {
         return this.compile(tpl, {
             children: this.children,
+            backArrow: this.props.backArrow,
         });
     }
 }
