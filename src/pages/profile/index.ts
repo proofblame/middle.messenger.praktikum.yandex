@@ -100,6 +100,7 @@ const buttons = buttonsDataTemp.map(
 const userName = 'Иван';
 
 const Profile = new Container({
+    backArrow: true,
     children: new Account({
         avatar: new AvatarWithState({
             url: '',
@@ -120,6 +121,14 @@ const Profile = new Container({
         profileData,
         buttons,
     }),
+    events: {
+        click: (e: Event) => {
+            const target = e.target as HTMLElement;
+            if (target.id === 'back') {
+                router.back();
+            }
+        },
+    },
 });
 
 export default Profile;

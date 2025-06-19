@@ -6,6 +6,7 @@ import Validation from '../../utils/Validation';
 import { ITempObj } from '../../utils/Interfaces';
 import { connect } from '../../utils/highOrderComponents';
 import { UserController } from '../../controllers/profile.ctrl';
+import Router from '../../utils/Router';
 
 const validation = new Validation();
 
@@ -69,6 +70,7 @@ const profileData = rowsData.map((element) => {
 const button = new Button({ title: 'Сохранить', type: 'submit' });
 
 const EditProfile = new Container({
+    backArrow: true,
     children: new Account({
         profileData,
         button,
@@ -88,6 +90,15 @@ const EditProfile = new Container({
             },
         },
     }),
+    events: {
+        click: (e: Event) => {
+            const target = e.target as HTMLElement;
+            if (target.id === 'back') {
+                const router = new Router('root');
+                router.back();
+            }
+        },
+    },
 });
 
 export default EditProfile;

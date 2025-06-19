@@ -1,8 +1,8 @@
 import Modal from '../../components/modal';
 import Button from '../../components/button';
 import EditAvatar from '../../components/edit-avatar';
-
-const submit = new Button({ title: 'Поменять' });
+// @ts-ignore
+const submit = new Button({ title: 'Поменять', type: 'button' });
 
 const UpdateAvatar = new Modal({
     children: new EditAvatar({

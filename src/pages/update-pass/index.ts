@@ -5,6 +5,7 @@ import Account from '../../components/account';
 import Validation from '../../utils/Validation';
 import { ITempObj } from '../../utils/Interfaces';
 import { UserController } from '../../controllers/profile.ctrl';
+import Router from '../../utils/Router';
 
 const validation = new Validation();
 
@@ -49,6 +50,7 @@ const profileData = rowsData.map(
 const button = new Button({ title: 'Сохранить', type: 'submit' });
 
 const UpdatePass = new Container({
+    backArrow: true,
     children: new Account({
         profileData,
         button,
@@ -71,6 +73,15 @@ const UpdatePass = new Container({
             },
         },
     }),
+    events: {
+        click: (e: Event) => {
+            const target = e.target as HTMLElement;
+            if (target.id === 'back') {
+                const router = new Router('root');
+                router.back();
+            }
+        },
+    },
 });
 
 export default UpdatePass;

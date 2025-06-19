@@ -1,8 +1,10 @@
-import * as Handlebars from 'handlebars';
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
-import isArray = Handlebars.Utils.isArray;
 import { ITempObj } from './Interfaces';
+
+const Handlebars = require('handlebars/dist/cjs/handlebars');
+
+const { isArray } = Handlebars.Utils;
 
 class Block<TProps> {
     static EVENTS = {
@@ -45,13 +47,16 @@ class Block<TProps> {
     private _getChildren(propsAndChildren: TProps) {
         const children: { [key: string]: Block<TProps> } = {};
         const props: ITempObj = {};
-
+        // @ts-ignore
         Object.entries(propsAndChildren).forEach(([key, value]) => {
             if (value instanceof Block) {
                 children[key] = value;
+                // @ts-ignore
             } else if (isArray(value) && value[0] instanceof Block) {
+                // @ts-ignore
                 children[key] = value;
             } else {
+                // @ts-ignore
                 props[key] = value;
             }
         });
@@ -162,7 +167,7 @@ class Block<TProps> {
         if (!nextProps) {
             return;
         }
-
+        // @ts-ignore
         Object.assign(this.props, nextProps);
     };
 
@@ -219,6 +224,7 @@ class Block<TProps> {
             if (isArray(child)) {
                 propsAndStubs[key] = [];
                 child.forEach((ch: Block<TProps>) => {
+                    // @ts-ignore
                     propsAndStubs[key].push(`<div data-id="${ch._id}"></div>`);
                 });
             } else {
@@ -244,6 +250,7 @@ class Block<TProps> {
 
     private _createDocumentElement(tagName: string) {
         const element = document.createElement(tagName);
+        // @ts-ignore
         if (this.props.settings?.withInternalID) {
             element.setAttribute('data-id', this._id);
         }

@@ -1,5 +1,8 @@
 export const tpl = `
-<main class="container">
+<div class="container">
+    {{#if backArrow}}
+       <div class='container-back' id='back'>➜</div>
+     {{/if}}
   {{{children}}}
-</main>
+</div>
 `;

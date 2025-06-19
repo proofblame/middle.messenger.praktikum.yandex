@@ -3,6 +3,7 @@ dist
 node_modules
 *.css
 *.html
+*.test.ts
 .cache
 .github
 static

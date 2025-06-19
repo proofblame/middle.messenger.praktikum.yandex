@@ -1,4 +1,3 @@
-import Handlebars from 'handlebars';
 import { tpl } from './chat-item.tpl';
 import { IChat, TPropsDefault } from '../../utils/Interfaces';
 import Block from '../../utils/Block';
@@ -7,11 +6,13 @@ import { connect } from '../../utils/highOrderComponents';
 import store from '../../utils/store';
 import { UserChatController } from '../../controllers/chats.ctrl';
 
+const Handlebars = require('handlebars/dist/cjs/handlebars');
+
 type TProps = {
     chats: IChat[];
 } & TPropsDefault;
 
-Handlebars.registerHelper('getTime', (value) => new Date(value).toLocaleTimeString());
+Handlebars.registerHelper('getTime', (value: string | number | Date) => new Date(value).toLocaleTimeString());
 
 class ChatItems extends Block<TProps> {
     render() {
@@ -35,6 +36,7 @@ const ChatItemsState = new ChatItemsWithState({
         click: (event: any) => {
             const parent = event.target.closest('.chat-item');
             if (!parent.classList.contains('active')) {
+                // @ts-ignore
                 UserChatController.setActiveChat(parent, store.getState().user.id);
                 const mes = document.getElementById('message') as HTMLTextAreaElement;
                 mes.value = '';
